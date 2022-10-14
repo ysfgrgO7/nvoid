@@ -1,4 +1,5 @@
 nvoid.builtin.notify.active = true
+nvoid.builtin.which_key.setup.layout.align = "center"
 nvoid.builtin.nvimtree.setup.view.side = "left"
 nvoid.builtin.treesitter.ensure_installed = {
   "bash",
