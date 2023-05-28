@@ -84,5 +84,13 @@ nvoid.plugins = {
       require("config.cybu")
     end,
 
-  }
+  },
+  {
+    "akinsho/bufferline.nvim",
+    config = function()
+      require("config.bufferline")
+    end,
+    branch = "main",
+    event = "User FileOpened",
+  },
 }
