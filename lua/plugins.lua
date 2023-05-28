@@ -77,15 +77,6 @@ nvoid.plugins = {
     end,
   },
   {
-    "ghillb/cybu.nvim",
-    branch = "main",
-    requires = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim" },
-    config = function()
-      require("config.cybu")
-    end,
-
-  },
-  {
     "akinsho/bufferline.nvim",
     config = function()
       require("config.bufferline")
