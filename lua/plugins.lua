@@ -8,6 +8,12 @@ nvoid.plugins = {
   },
   { "ChristianChiarulli/nvim-ts-rainbow" },
   { "nvim-treesitter/nvim-treesitter-textobjects" },
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function ()
+      require("config.symbols-outline")
+    end
+  },
   -- Trouble and DAP
   {
     "folke/trouble.nvim",
