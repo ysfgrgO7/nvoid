@@ -1,6 +1,6 @@
 -- Ui
-nvoid.colorscheme = "onedarker"
-nvoid.statusline.config = "%!v:lua.require('statusline').run()"
+nvoid.ui.colorscheme = "tokyonight"
+nvoid.ui.statusline.config = "%!v:lua.require('statusline').run()"
 nvoid.log.level = "warn"
 require("mappings")
 require("builtins")

@@ -5,17 +5,15 @@ local M = require("statusline.modules")
 S.run = function()
   return table.concat({
     M.modeE(),
-    M.filename(),
+    M.fileInfo(),
     M.git(),
 
     "%=",
-    M.lsp(),
-    M.diagnostics(),
     M.lsp_progress(),
     "%=",
 
-    M.treesitter_status(),
-    M.filetype(),
+    M.get_lsp(),
+    M.lsp_diagnostics(),
     M.scrollbar(),
   })
 end

@@ -41,7 +41,6 @@ nvoid.plugins = {
   -- Surround
   {
     "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
       require("config.surround")
     end,
@@ -49,7 +48,7 @@ nvoid.plugins = {
   -- todo Comments.nvim
   {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("config.comments")
     end,
@@ -57,7 +56,7 @@ nvoid.plugins = {
   -- Labs
   {
     "0x100101/lab.nvim",
-    run = "cd js && npm ci",
+    build = "cd js && npm ci",
     config = function()
       require("config.labs")
     end,
