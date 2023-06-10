@@ -22,8 +22,8 @@ nvoid.builtin.which_key.mappings["l"] = {
   i = { "<cmd>LspInfo<cr>", "Info" },
   l = { "<cmd>MasonLog<cr>", "Mason Log" },
   m = { "<cmd>Mason<cr>", "Mason" },
-  r = { "<cmd>NvoidRename<cr>", "Rename" },
-  f = { "<cmd>NvoidFormat<cr>", "Format" },
+  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+  f = { "<cmd>lua require('nvoid.lsp.utils').format()<cr>", "Format" },
   t = { "<cmd>TroubleToggle<cr>", "Trouble Toggle" },
   T = { "<cmd>Telescope diagnostics<CR>", "Telescope Diagnocstics" },
 }

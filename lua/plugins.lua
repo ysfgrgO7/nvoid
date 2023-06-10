@@ -1,4 +1,11 @@
 nvoid.plugins = {
+  -- Colorizer
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("config.colorizer")
+    end
+  },
   -- TreeSitter
   {
     "nvim-treesitter/playground",
@@ -10,7 +17,7 @@ nvoid.plugins = {
   { "nvim-treesitter/nvim-treesitter-textobjects" },
   {
     'simrat39/symbols-outline.nvim',
-    config = function ()
+    config = function()
       require("config.symbols-outline")
     end
   },
