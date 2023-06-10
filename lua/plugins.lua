@@ -1,3 +1,4 @@
+nvoid.builtin.cmp.cmdline.enable = true
 nvoid.plugins = {
   -- Colorizer
   {
