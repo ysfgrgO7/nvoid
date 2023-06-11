@@ -3,6 +3,7 @@ nvoid.keys.normal_mode["<C-a>"] = "gg<S-v>G"
 nvoid.keys.normal_mode["<C-b>"] = ":JABSOpen<CR>"
 nvoid.keys.normal_mode["<TAB>"] = ":BufferLineCycleNext<CR>"
 nvoid.keys.normal_mode["S-<TAB>"] = ":BufferLineCyclePrev<CR>"
+nvoid.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
 nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
 nvoid.builtin.which_key.mappings["b"] = { "<cmd>JABSOpen<CR>", " Buffer" }
 nvoid.builtin.which_key.mappings["z"] = {

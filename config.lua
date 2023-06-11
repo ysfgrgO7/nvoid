@@ -5,7 +5,7 @@ nvoid.log.level = "warn"
 require("ysf.mappings")
 require("ysf.builtins")
 require("ysf.plugins")
-require("ysf.commands").load()
+require("ysf.commands").load(require("ysf.commands").cmds)
 require("ysf.lsp")
 function SuppressMessage()
   vim.cmd('Git add %')

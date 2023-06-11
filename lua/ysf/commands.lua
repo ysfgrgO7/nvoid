@@ -10,9 +10,13 @@ M.cmds = {
 
 function M.load(collection)
   local common_opts = { force = true }
-  for _, cmd in pairs(collection) do
-    local opts = vim.tbl_deep_extend("force", common_opts, cmd.opts or {})
-    vim.api.nvim_create_user_command(cmd.name, cmd.fn, opts)
+  for _, cmds in pairs(collection) do
+    local opts = vim.tbl_deep_extend("force", common_opts, cmds.opts or {})
+    vim.api.nvim_create_user_command(cmds.name, cmds.fn, opts)
   end
 end
 return M
+
+-- vim.api.nvim_create_user_command(
+
+-- )
