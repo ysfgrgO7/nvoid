@@ -1,11 +1,12 @@
 -- Ui
 nvoid.ui.colorscheme = "tokyonight"
-nvoid.ui.statusline.config = "%!v:lua.require('statusline').run()"
+nvoid.ui.statusline.config = "%!v:lua.require('ysf.statusline').run()"
 nvoid.log.level = "warn"
-require("mappings")
-require("builtins")
-require("plugins")
-require("lsp")
+require("ysf.mappings")
+require("ysf.builtins")
+require("ysf.plugins")
+require("ysf.commands").load()
+require("ysf.lsp")
 function SuppressMessage()
   vim.cmd('Git add %')
   vim.cmd('Git commit')

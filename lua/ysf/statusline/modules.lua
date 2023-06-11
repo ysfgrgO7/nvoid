@@ -1,5 +1,4 @@
 local fn = vim.fn
-local icons = require("icons")
 local modesE = {
   ["n"] = { "█", "St_NormalModeE" },
   ["no"] = { "█", "St_NormalModeE" },

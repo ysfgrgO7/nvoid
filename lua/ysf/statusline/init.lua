@@ -1,6 +1,6 @@
 local S = {}
 
-local M = require("statusline.modules")
+local M = require("ysf.statusline.modules")
 
 S.run = function()
   return table.concat({

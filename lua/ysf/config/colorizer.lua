@@ -1,5 +1,3 @@
--- require("colorizer").attach_to_buffer(0, { mode = "background", css = true })
--- require("colorizer").detach_from_buffer(0, { mode = "virtualtext", css = true })
 require("colorizer").setup {
   filetypes = { "*" },
   user_default_options = {

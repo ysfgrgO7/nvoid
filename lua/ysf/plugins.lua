@@ -4,14 +4,14 @@ nvoid.plugins = {
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
-      require("config.colorizer")
+      require("ysf.config.colorizer")
     end
   },
   -- TreeSitter
   {
     "nvim-treesitter/playground",
     config = function()
-      require("config.playground")
+      require("ysf.config.playground")
     end,
   },
   { "ChristianChiarulli/nvim-ts-rainbow" },
@@ -19,20 +19,20 @@ nvoid.plugins = {
   {
     'simrat39/symbols-outline.nvim',
     config = function()
-      require("config.symbols-outline")
+      require("ysf.config.symbols-outline")
     end
   },
   -- Trouble and DAP
   {
     "folke/trouble.nvim",
     config = function()
-      require("config.trouble")
+      require("ysf.config.trouble")
     end,
   },
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("config.dap")
+      require("ysf.config.dap")
     end,
   },
   {
@@ -42,21 +42,21 @@ nvoid.plugins = {
   {
     "matbme/JABS.nvim",
     config = function()
-      require("config.jabs")
+      require("ysf.config.jabs")
     end,
   },
   -- neoscroll
   {
     "karb94/neoscroll.nvim",
     config = function()
-      require("config.neoscroll")
+      require("ysf.config.neoscroll")
     end,
   },
   -- Surround
   {
     "kylechui/nvim-surround",
     config = function()
-      require("config.surround")
+      require("ysf.config.surround")
     end,
   },
   -- todo Comments.nvim
@@ -64,7 +64,7 @@ nvoid.plugins = {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
-      require("config.comments")
+      require("ysf.config.comments")
     end,
   },
   -- Labs
@@ -72,27 +72,27 @@ nvoid.plugins = {
     "0x100101/lab.nvim",
     build = "cd js && npm ci",
     config = function()
-      require("config.labs")
+      require("ysf.config.labs")
     end,
   },
   -- Zen
   {
     "folke/zen-mode.nvim",
     config = function()
-      require("config.zen")
+      require("ysf.config.zen")
     end,
   },
   -- Twilight
   {
     "folke/twilight.nvim",
     config = function()
-      require("config.twilight")
+      require("ysf.config.twilight")
     end,
   },
   {
     "akinsho/bufferline.nvim",
     config = function()
-      require("config.bufferline")
+      require("ysf.config.bufferline").setup()
     end,
     branch = "main",
     event = "User FileOpened",

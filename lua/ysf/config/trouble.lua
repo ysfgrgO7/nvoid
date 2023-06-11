@@ -1,4 +1,4 @@
-local icons = require("icons").lsp
+local icons = require("ysf.icons").lsp
 require("trouble").setup({
   position = "bottom",
   height = 10,
