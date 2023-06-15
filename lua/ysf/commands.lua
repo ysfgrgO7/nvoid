@@ -15,8 +15,5 @@ function M.load(collection)
     vim.api.nvim_create_user_command(cmds.name, cmds.fn, opts)
   end
 end
+
 return M
-
--- vim.api.nvim_create_user_command(
-
--- )

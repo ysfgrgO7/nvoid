@@ -39,19 +39,6 @@ nvoid.plugins = {
     "Pocco81/dap-buddy.nvim",
     branch = "dev",
   },
-  {
-    "matbme/JABS.nvim",
-    config = function()
-      reload("ysf.config.jabs")
-    end,
-  },
-  -- neoscroll
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      reload("ysf.config.neoscroll")
-    end,
-  },
   -- Surround
   {
     "kylechui/nvim-surround",
@@ -97,4 +84,23 @@ nvoid.plugins = {
     branch = "main",
     event = "User FileOpened",
   },
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    branch = "anticonceal",
+    config = function()
+      reload("ysf.config.inlayhints")
+    end,
+  },
+  {
+    "opalmay/vim-smoothie",
+    config = function()
+      reload("ysf.config.smoothie")
+    end
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    config = function()
+      reload("ysf.config.spectre")
+    end
+  }
 }

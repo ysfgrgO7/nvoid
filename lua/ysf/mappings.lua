@@ -4,8 +4,21 @@ nvoid.keys.normal_mode["<C-b>"] = ":JABSOpen<CR>"
 nvoid.keys.normal_mode["<TAB>"] = ":BufferLineCycleNext<CR>"
 nvoid.keys.normal_mode["S-<TAB>"] = ":BufferLineCyclePrev<CR>"
 nvoid.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
+
+-- Search
+nvoid.builtin.which_key.mappings["s"] = {
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
+  nvoid.icons.ui.Search .. " Search" }
+
+-- Buffers
+nvoid.builtin.which_key.mappings["b"] = {
+  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
+  " Buffer" }
+
+-- No search
 nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
-nvoid.builtin.which_key.mappings["b"] = { "<cmd>JABSOpen<CR>", " Buffer" }
+
+-- Zen
 nvoid.builtin.which_key.mappings["z"] = {
   name = " Zen",
   z = { "<cmd>ZenMode<cr>", "ZenMode" },
