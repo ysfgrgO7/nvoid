@@ -7,7 +7,7 @@ nvoid.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
 
 -- Search
 nvoid.builtin.which_key.mappings["s"] = {
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
   nvoid.icons.ui.Search .. " Search" }
 
 -- Buffers
