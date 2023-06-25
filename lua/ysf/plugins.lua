@@ -77,6 +77,14 @@ nvoid.plugins = {
     end,
   },
   {
+    "akinsho/bufferline.nvim",
+    config = function()
+      reload("ysf.config.bufferline").setup()
+    end,
+    branch = "main",
+    event = "User FileOpened",
+  },
+  {
     "lvimuser/lsp-inlayhints.nvim",
     branch = "anticonceal",
     config = function()
