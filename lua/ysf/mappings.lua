@@ -1,8 +1,6 @@
 nvoid.leader = "space"
 nvoid.keys.normal_mode["<C-a>"] = "gg<S-v>G"
 nvoid.keys.normal_mode["<C-b>"] = ":JABSOpen<CR>"
-nvoid.keys.normal_mode["<TAB>"] = ":BufferLineCycleNext<CR>"
-nvoid.keys.normal_mode["S-<TAB>"] = ":BufferLineCyclePrev<CR>"
 nvoid.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
 
 -- Search
