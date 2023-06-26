@@ -1,5 +1,6 @@
-nvoid.builtin.cmp.cmdline.enable = true
-nvoid.plugins = {
+local M = {}
+
+M.list = {
   -- Colorizer
   {
     "NvChad/nvim-colorizer.lua",
@@ -96,3 +97,5 @@ nvoid.plugins = {
     end
   }
 }
+
+return M
