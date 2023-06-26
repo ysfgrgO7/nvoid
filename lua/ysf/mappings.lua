@@ -1,9 +1,9 @@
 nvoid.leader = "space"
 nvoid.keys.normal_mode["<C-a>"] = "gg<S-v>G"
 nvoid.keys.normal_mode["<C-b>"] = ":JABSOpen<CR>"
-nvoid.keys.normal_mode["<TAB>"] = ":BufferLineCycleNext<CR>"
-nvoid.keys.normal_mode["S-<TAB>"] = ":BufferLineCyclePrev<CR>"
-nvoid.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
+nvoid.keys.normal_mode["<TAB>"] = ":lua require('ysf.bufferline').tabuflineNext()<CR>"
+nvoid.keys.normal_mode["<S-TAB>"] = ":lua require('ysf.bufferline').tabuflinePrev()<CR>"
+nvoid.keys.normal_mode["<S-x>"] = ":lua require('ysf.bufferline').close_buffer()<CR>"
 
 -- Search
 nvoid.builtin.which_key.mappings["s"] = {
