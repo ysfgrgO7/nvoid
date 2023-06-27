@@ -2,9 +2,6 @@
 nvoid.leader = "space"
 nvoid.keys.normal_mode["<C-a>"] = "gg<S-v>G"
 nvoid.keys.normal_mode["<C-b>"] = ":JABSOpen<CR>"
-nvoid.keys.normal_mode["<TAB>"] = ":lua reload('ysf.bufferline').tabuflineNext()<CR>"
-nvoid.keys.normal_mode["<S-TAB>"] = ":lua reload('ysf.bufferline').tabuflinePrev()<CR>"
-nvoid.keys.normal_mode["<S-x>"] = ":lua reload('ysf.bufferline').close_buffer()<CR>"
 --## Which Key
 nvoid.builtin.which_key.setup.layout.align = "center"
 nvoid.builtin.which_key.mappings["s"] = {
