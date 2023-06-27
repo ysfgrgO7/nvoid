@@ -1,4 +1,3 @@
--- store listed buffers in tab local var
 vim.t.bufs = vim.api.nvim_list_bufs()
 
 local listed_bufs = {}
@@ -11,8 +10,6 @@ end
 
 vim.t.bufs = listed_bufs
 
--- autocmds for tabufline -> store bufnrs on bufadd, bufenter events
--- thx to https://github.com/ii14 & stores buffer per tab -> table
 vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "tabnew" }, {
   callback = function(args)
     local bufs = vim.t.bufs
@@ -63,5 +60,14 @@ vim.api.nvim_create_autocmd("BufDelete", {
   end,
 })
 
-vim.opt.showtabline = 2
-vim.opt.tabline = "%!v:lua.require('ysf.bufferline.modules').run()"
+vim.api.nvim_create_autocmd({ "BufNew", "BufNewFile", "BufRead", "TabEnter", "TermOpen" }, {
+  pattern = "*",
+  group = vim.api.nvim_create_augroup("TabuflineLazyLoad", {}),
+  callback = function()
+    if #vim.fn.getbufinfo { buflisted = 1 } >= 2 or #vim.api.nvim_list_tabpages() >= 2 then
+      vim.opt.showtabline = 2
+      vim.opt.tabline = "%!v:lua.require('ysf.bufferline.modules').run()"
+      vim.api.nvim_del_augroup_by_name "TabuflineLazyLoad"
+    end
+  end,
+})
