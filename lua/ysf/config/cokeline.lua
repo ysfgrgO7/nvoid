@@ -8,7 +8,7 @@ local errors_fg = get_hex('DiagnosticError', 'fg')
 local components = {
   separator = {
     text = ' ',
-    bg = get_hex('TablineFill', 'bg'),
+    bg = get_hex('Coke', 'bg'),
     truncation = { priority = 1 },
   },
 
@@ -17,26 +17,12 @@ local components = {
     truncation = { priority = 1 },
   },
 
-
   devicon = {
     text = function(buffer)
       return buffer.devicon.icon
     end,
     fg = function(buffer)
       return buffer.devicon.color
-    end,
-    truncation = { priority = 1 },
-  },
-
-  index = {
-    text = function(buffer)
-      return buffer.index .. ': '
-      -- return buffer.index .. '. '
-    end,
-    fg = function(buffer)
-      return
-          (buffer.diagnostics.errors ~= 0 and errors_fg)
-          or nil
     end,
     truncation = { priority = 1 },
   },
@@ -78,11 +64,10 @@ local components = {
 
   close_or_unsaved = {
     text = function(buffer)
-      -- return buffer.is_modified and '●' or ''
-      return buffer.is_modified and '' or ''
+      return buffer.is_modified and ' ●' or ''
     end,
     fg = function(buffer)
-      return buffer.is_modified and '#00bb00' or nil
+      return buffer.is_modified and get_hex("CokeUnsaved", "fg") or nil
     end,
     delete_buffer_on_left_click = false,
     truncation = { priority = 1 },
@@ -90,7 +75,7 @@ local components = {
 }
 
 require('cokeline').setup({
-  show_if_buffers_are_at_least = 1,
+  show_if_buffers_are_at_least = 2,
 
   buffers = {
     filter_valid = function(buffer) return buffer.type ~= 'terminal' end,
@@ -129,7 +114,6 @@ require('cokeline').setup({
   components = {
     components.space,
     components.devicon,
-    components.index,
     components.unique_prefix,
     components.filename,
     components.close_or_unsaved,
