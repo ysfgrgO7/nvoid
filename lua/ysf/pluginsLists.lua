@@ -1,6 +1,12 @@
 local M = {}
 
 M.list = {
+  {
+    "willothy/nvim-cokeline",
+    config = function()
+      reload("ysf.config.cokeline")
+    end
+  },
   -- Colorizer
   {
     "NvChad/nvim-colorizer.lua",
