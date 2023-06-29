@@ -113,6 +113,8 @@ M.add = {
   MiniTablineModifiedVisible = { fg = 'orange', bg = 'black' },
   MiniTablineTabpagesection = { bg = 'black', fg = 'none' },
   MiniTablineVisible = { fg = 'white', bg = 'black' },
-  EndOfBuffer = { fg = "black" }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+  EndOfBuffer = { fg = "black" },               -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+  StatusLineNC = { fg = 'grey', bg = 'black' }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+  NormalNC = { fg = 'white', bg = 'black' },    -- normal text in non-current windows
 }
 return M
