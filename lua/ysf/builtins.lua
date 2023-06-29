@@ -36,6 +36,7 @@ nvoid.builtin.which_key.mappings["l"] = {
   t = { "<cmd>TroubleToggle<cr>", "Trouble Toggle" },
   T = { "<cmd>Telescope diagnostics<CR>", "Telescope Diagnocstics" },
 }
+nvoid.builtin.which_key.mappings[";"] = nil
 --## Plugins
 nvoid.builtin.cmp.cmdline.enable = true
 nvoid.plugins = reload("ysf.pluginsLists").list
