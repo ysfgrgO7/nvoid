@@ -1,14 +1,14 @@
 local get_hex = require('cokeline/utils').get_hex
-
-local yellow = vim.g.terminal_color_3
-
-local comments_fg = get_hex('Comment', 'fg')
 local errors_fg = get_hex('DiagnosticError', 'fg')
 
 local components = {
   separator = {
-    text = ' ',
-    bg = get_hex('Coke', 'bg'),
+    text = function(buffer)
+      return buffer.is_focused and nvoid.icons.ui.BoldLineLeft or ''
+    end,
+    fg = function()
+      return get_hex('CokeSep', 'fg')
+    end,
     truncation = { priority = 1 },
   },
 
@@ -31,7 +31,9 @@ local components = {
     text = function(buffer)
       return buffer.unique_prefix
     end,
-    fg = comments_fg,
+    fg = function()
+      return get_hex('Comment', 'fg')
+    end,
     style = 'italic',
     truncation = {
       priority = 3,
@@ -116,7 +118,6 @@ require('cokeline').setup({
     components = {
       {
         text = "",
-        fg = yellow,
         bg = get_hex('NvimTreeNormal', 'bg'),
         style = 'bold',
       },
@@ -124,6 +125,7 @@ require('cokeline').setup({
   },
 
   components = {
+    components.separator,
     components.space,
     components.devicon,
     components.unique_prefix,

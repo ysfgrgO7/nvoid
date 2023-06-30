@@ -5,6 +5,7 @@ M.add = {
   CokeUnsaved = { fg = 'green' },
   CokeClose = { fg = 'red', bg = 'red' },
   CokeFill = { bg = 'darker_black' }, -- tab pages line, where there are no labels
+  CokeSep = { bg = 'blue', fg = 'blue' },
   -- Tree-sitter
   rainbowcol1 = { fg = 'red' },
   rainbowcol2 = { fg = 'yellow' },

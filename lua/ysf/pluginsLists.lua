@@ -101,7 +101,7 @@ M.list = {
     config = function()
       reload("ysf.config.spectre")
     end
-  }
+  },
 }
 
 return M
