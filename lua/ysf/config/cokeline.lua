@@ -62,15 +62,25 @@ local components = {
     },
   },
 
-  close_or_unsaved = {
-    text = function(buffer)
-      return buffer.is_modified and ' ●' or ''
-    end,
+  delete_buffer = {
+    text = '  ',
     fg = function(buffer)
-      return buffer.is_modified and get_hex("CokeUnsaved", "fg") or nil
+      if buffer.is_modified then
+        return buffer.is_modified and get_hex("CokeUnsaved", "fg") or nil
+      else
+        return buffer.is_focused and get_hex("Coke", "bg") or get_hex("CokeClose", "fg")
+      end
     end,
-    delete_buffer_on_left_click = false,
-    truncation = { priority = 1 },
+    bg = function(buffer)
+      if buffer.is_modified then
+        return buffer.is_modified and get_hex("Coke", "bg") or nil
+      else
+        return buffer.is_focused and get_hex("CokeClose", "bg") or nil
+      end
+    end,
+    on_click = function(_, _, _, _, buffer)
+      buffer:delete()
+    end,
   },
 }
 
@@ -89,15 +99,17 @@ require('cokeline').setup({
       return
           buffer.is_focused
           and get_hex('Coke', 'fg')
-          or get_hex('Cokeun', 'fg')
+          or get_hex('CokeUn', 'fg')
     end,
     bg = function(buffer)
       return
           buffer.is_focused
           and get_hex('Coke', 'bg')
-          or get_hex('Cokeun', 'bg')
+          or get_hex('CokeUn', 'bg')
     end,
   },
+
+  fill_hl = 'CokeFill',
 
   sidebar = {
     filetype = 'NvimTree',
@@ -116,7 +128,7 @@ require('cokeline').setup({
     components.devicon,
     components.unique_prefix,
     components.filename,
-    components.close_or_unsaved,
     components.space,
+    components.delete_buffer,
   },
 })

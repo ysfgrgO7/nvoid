@@ -120,7 +120,7 @@ M.get_lsp = function()
 end
 
 M.lsp_progress = function()
-  local Lsp = vim.lsp.util.get_progress_messages()[1]
+  local Lsp = vim.lsp.status()[1]
 
   if vim.o.columns < 120 or not Lsp then
     return ""
@@ -148,9 +148,9 @@ M.lsp_diagnostics = function()
   local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 
   errors = (errors and errors > 0) and ("%#St_lspError#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ") or
-  ""
+      ""
   warnings = (warnings and warnings > 0) and
-  ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ") or ""
+      ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ") or ""
   hints = (hints and hints > 0) and ("%#St_lspHints#" .. nvoid.icons.diagnostics.BoldHint .. " " .. hints .. " ") or ""
   info = (info and info > 0) and ("%#St_lspInfo#" .. nvoid.icons.diagnostics.BoldInformation .. " " .. info .. " ") or ""
 
