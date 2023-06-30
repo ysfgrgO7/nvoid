@@ -64,8 +64,14 @@ local components = {
     },
   },
 
-  delete_buffer = {
-    text = '  ',
+  change_close_buf = {
+    text = function(buffer)
+      if buffer.is_modified then
+        return " " .. nvoid.icons.ui.Circle .. " "
+      else
+        return " " .. nvoid.icons.ui.Close .. " "
+      end
+    end,
     fg = function(buffer)
       if buffer.is_modified then
         return buffer.is_modified and get_hex("CokeUnsaved", "fg") or nil
@@ -75,7 +81,11 @@ local components = {
     end,
     bg = function(buffer)
       if buffer.is_modified then
-        return buffer.is_modified and get_hex("Coke", "bg") or nil
+        if buffer.is_focused then
+          return buffer.is_modified and get_hex("Coke", "bg") or nil
+        else
+          return buffer.is_modified and get_hex("CokeUn", "bg") or nil
+        end
       else
         return buffer.is_focused and get_hex("CokeClose", "bg") or nil
       end
@@ -131,6 +141,6 @@ require('cokeline').setup({
     components.unique_prefix,
     components.filename,
     components.space,
-    components.delete_buffer,
+    components.change_close_buf,
   },
 })

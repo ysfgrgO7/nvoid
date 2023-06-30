@@ -8,13 +8,13 @@ return {
   {
     name = "BufferNext",
     fn = function()
-      vim.cmd("bn")
+      vim.cmd("bp")
     end
   },
   {
     name = "BufferPrev",
     fn = function()
-      vim.cmd("bp")
+      vim.cmd("bn")
     end
   },
 }
