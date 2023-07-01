@@ -89,7 +89,6 @@ M.list = {
   },
   {
     "mawkler/modicator.nvim",
-    event = "ColorScheme",
     dependencies = 'nvoid-lua/base16',
     config = function()
       reload("ysf.plugins.config.modicator")
