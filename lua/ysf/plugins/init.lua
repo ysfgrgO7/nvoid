@@ -57,13 +57,6 @@ M.list = {
     end,
   },
   {
-    "0x100101/lab.nvim",
-    build = "cd js && npm ci",
-    config = function()
-      reload("ysf.plugins.config.labs")
-    end,
-  },
-  {
     "folke/zen-mode.nvim",
     config = function()
       reload("ysf.plugins.config.zen")
