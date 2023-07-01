@@ -47,9 +47,11 @@ M.add = {
   ["@lsp.typemod.type.defaultLibrary"] = { fg = "blue" },
   ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
   ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+  NvimTreeIndentMarker = { fg = "grey", bg = 'NONE' },
 }
 
 M.change = {
+  -- CMP
   CmpItemKindConstant = { bg = 'orange', fg = "black" },
   CmpItemKindFunction = { bg = 'blue', fg = "black" },
   CmpItemKindIdentifier = { bg = 'vibrant_green', fg = "black" },
@@ -79,6 +81,16 @@ M.change = {
   CmpItemKindOperator = { bg = 'light_grey', fg = "black" },
   CmpItemKindTypeParameter = { bg = 'vibrant_green', fg = "black" },
   CmpItemKindCopilot = { bg = 'green', fg = "black" },
+  -- Modicator
+  CursorLineNr = { bold = true, fg = "blue" },
+  NormalMode = { fg = "blue", bg = 'none' },
+  InsertMode = { fg = "green", bg = 'none' },
+  VisualMode = { fg = "purple", bg = 'none' },
+  CommandMode = { fg = "yellow", bg = 'none' },
+  ReplaceMode = { fg = "red", bg = 'none' },
+  SelectMode = { fg = "orange", bg = 'none' },
+  TerminalMode = { fg = 'cyan', bg = 'none' },
+  TerminalNormalMode = { fg = 'teal', bg = 'none' },
 }
 
 return M

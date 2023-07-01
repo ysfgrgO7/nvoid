@@ -1,6 +1,6 @@
 local S = {}
 
-local M = reload("ysf.statusline.modules")
+local M = reload("ysf.ui.statusline.modules")
 
 S.run = function()
   return table.concat({

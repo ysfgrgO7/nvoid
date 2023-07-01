@@ -1,7 +1,11 @@
--- Ui
-nvoid.ui.colorscheme = "tokyonight"
-nvoid.ui.statusline.config = "%!v:lua.reload('ysf.statusline').run()"
 nvoid.log.level = "warn"
-nvoid.ui.hl_add = reload("ysf.hl").add
-nvoid.ui.hl_override = reload("ysf.hl").change
+nvoid.plugins = reload("ysf.plugins").list
+reload("ysf.ui")
 reload("ysf.builtins")
+reload("ysf.lsp")
+reload("ysf.keys")
+local common_opts = { force = true }
+for _, cmds in pairs(reload("ysf.cmds")) do
+  local opts = vim.tbl_deep_extend("force", common_opts, cmds.opts or {})
+  vim.api.nvim_create_user_command(cmds.name, cmds.fn, opts)
+end
