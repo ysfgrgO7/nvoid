@@ -7,14 +7,12 @@ M.list = {
       reload("ysf.plugins.config.cokeline")
     end
   },
-  -- Colorizer
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
       reload("ysf.plugins.config.colorizer")
     end
   },
-  -- TreeSitter
   {
     "nvim-treesitter/playground",
     config = function()
@@ -29,7 +27,6 @@ M.list = {
       reload("ysf.plugins.config.symbols-outline")
     end
   },
-  -- Trouble and DAP
   {
     "folke/trouble.nvim",
     config = function()
@@ -46,14 +43,12 @@ M.list = {
     "Pocco81/dap-buddy.nvim",
     branch = "dev",
   },
-  -- Surround
   {
     "kylechui/nvim-surround",
     config = function()
       reload("ysf.plugins.config.surround")
     end,
   },
-  -- todo Comments.nvim
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
@@ -61,7 +56,6 @@ M.list = {
       reload("ysf.plugins.config.comments")
     end,
   },
-  -- Labs
   {
     "0x100101/lab.nvim",
     build = "cd js && npm ci",
@@ -69,14 +63,12 @@ M.list = {
       reload("ysf.plugins.config.labs")
     end,
   },
-  -- Zen
   {
     "folke/zen-mode.nvim",
     config = function()
       reload("ysf.plugins.config.zen")
     end,
   },
-  -- Twilight
   {
     "folke/twilight.nvim",
     config = function()
@@ -109,6 +101,18 @@ M.list = {
     config = function()
       reload("ysf.plugins.config.modicator")
     end
+  },
+  {
+    "monkoose/matchparen.nvim",
+    config = function()
+      vim.g.loaded_matchparen = 1
+      require('matchparen').setup({
+        on_startup = true,
+        hl_group = 'MatchParen',
+        augroup_name = 'matchparen',
+        debounce_time = 100,
+      })
+    end,
   },
 }
 
