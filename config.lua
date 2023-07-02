@@ -1,3 +1,4 @@
+nvoid.ui.colorscheme = "tokyonight"
 nvoid.log.level = "warn"
 nvoid.plugins = reload("ysf.plugins").list
 reload("ysf.ui")
