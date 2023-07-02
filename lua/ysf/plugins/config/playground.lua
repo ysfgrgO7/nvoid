@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.configs").setup {
   playground = {
     enable = true,
     disable = {},
@@ -17,4 +17,4 @@ require("nvim-treesitter.configs").setup({
       show_help = "?",
     },
   },
-})
+}

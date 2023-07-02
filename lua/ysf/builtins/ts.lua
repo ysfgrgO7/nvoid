@@ -13,7 +13,7 @@ nvoid.builtin.treesitter.ensure_installed = {
   "yaml",
   "fish",
   "query",
-  "html"
+  "html",
 }
 nvoid.builtin.treesitter.ignore_install = { "haskell" }
 nvoid.builtin.treesitter.highlight.enabled = true

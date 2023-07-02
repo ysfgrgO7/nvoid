@@ -1,19 +1,19 @@
-local get_hex = require('cokeline/utils').get_hex
-local errors_fg = get_hex('DiagnosticError', 'fg')
+local get_hex = require("cokeline/utils").get_hex
+local errors_fg = get_hex("DiagnosticError", "fg")
 
 local components = {
   separator = {
     text = function(buffer)
-      return buffer.is_focused and nvoid.icons.ui.BoldLineLeft or ''
+      return buffer.is_focused and nvoid.icons.ui.BoldLineLeft or ""
     end,
     fg = function()
-      return get_hex('CokeSep', 'fg')
+      return get_hex("CokeSep", "fg")
     end,
     truncation = { priority = 1 },
   },
 
   space = {
-    text = ' ',
+    text = " ",
     truncation = { priority = 1 },
   },
 
@@ -32,12 +32,12 @@ local components = {
       return buffer.unique_prefix
     end,
     fg = function()
-      return get_hex('Comment', 'fg')
+      return get_hex("Comment", "fg")
     end,
-    style = 'italic',
+    style = "italic",
     truncation = {
       priority = 3,
-      direction = 'left',
+      direction = "left",
     },
   },
 
@@ -46,21 +46,17 @@ local components = {
       return buffer.filename
     end,
     fg = function(buffer)
-      return
-          (buffer.diagnostics.errors ~= 0 and errors_fg)
-          or nil
+      return (buffer.diagnostics.errors ~= 0 and errors_fg) or nil
     end,
     style = function(buffer)
-      return
-          ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
-            and 'bold,underline')
-          or (buffer.is_focused and 'bold')
-          or (buffer.diagnostics.errors ~= 0 and 'underline')
-          or nil
+      return ((buffer.is_focused and buffer.diagnostics.errors ~= 0) and "bold,underline")
+        or (buffer.is_focused and "bold")
+        or (buffer.diagnostics.errors ~= 0 and "underline")
+        or nil
     end,
     truncation = {
       priority = 2,
-      direction = 'left',
+      direction = "left",
     },
   },
 
@@ -96,42 +92,40 @@ local components = {
   },
 }
 
-require('cokeline').setup({
+require("cokeline").setup {
   show_if_buffers_are_at_least = 2,
 
   buffers = {
-    filter_valid = function(buffer) return buffer.type ~= 'terminal' end,
-    filter_visible = function(buffer) return buffer.type ~= 'terminal' end,
-    focus_on_delete = 'prev',
-    new_buffers_position = 'next',
+    filter_valid = function(buffer)
+      return buffer.type ~= "terminal"
+    end,
+    filter_visible = function(buffer)
+      return buffer.type ~= "terminal"
+    end,
+    focus_on_delete = "prev",
+    new_buffers_position = "next",
   },
 
   default_hl = {
     fg = function(buffer)
-      return
-          buffer.is_focused
-          and get_hex('Coke', 'fg')
-          or get_hex('CokeUn', 'fg')
+      return buffer.is_focused and get_hex("Coke", "fg") or get_hex("CokeUn", "fg")
     end,
     bg = function(buffer)
-      return
-          buffer.is_focused
-          and get_hex('Coke', 'bg')
-          or get_hex('CokeUn', 'bg')
+      return buffer.is_focused and get_hex("Coke", "bg") or get_hex("CokeUn", "bg")
     end,
   },
 
-  fill_hl = 'CokeFill',
+  fill_hl = "CokeFill",
 
   sidebar = {
-    filetype = 'NvimTree',
+    filetype = "NvimTree",
     components = {
       {
         text = "",
-        bg = get_hex('NvimTreeNormal', 'bg'),
-        style = 'bold',
+        bg = get_hex("NvimTreeNormal", "bg"),
+        style = "bold",
       },
-    }
+    },
   },
 
   components = {
@@ -143,4 +137,4 @@ require('cokeline').setup({
     components.space,
     components.change_close_buf,
   },
-})
+}

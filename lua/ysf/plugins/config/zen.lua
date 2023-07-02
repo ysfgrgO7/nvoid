@@ -1,4 +1,4 @@
-require("zen-mode").setup({
+require("zen-mode").setup {
   window = {
     backdrop = 0.95,
     width = 100,
@@ -12,6 +12,6 @@ require("zen-mode").setup({
     tmux = { enabled = false },
   },
   on_open = function(_)
-    vim.cmd(":TwilightEnable")
+    vim.cmd ":TwilightEnable"
   end,
-})
+}

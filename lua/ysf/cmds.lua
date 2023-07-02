@@ -2,19 +2,19 @@ return {
   {
     name = "BufferKill",
     fn = function()
-      vim.cmd("bd")
+      vim.cmd "bd"
     end,
   },
   {
     name = "BufferNext",
     fn = function()
-      vim.cmd("bp")
-    end
+      vim.cmd "bp"
+    end,
   },
   {
     name = "BufferPrev",
     fn = function()
-      vim.cmd("bn")
-    end
+      vim.cmd "bn"
+    end,
   },
 }

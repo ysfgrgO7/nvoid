@@ -91,7 +91,7 @@ M.change = {
   SelectMode = { fg = "orange", bg = "none" },
   TerminalMode = { fg = "cyan", bg = "none" },
   TerminalNormalMode = { fg = "teal", bg = "none" },
-  MatchParen = { bg = "light_grey" }
+  MatchParen = { bg = "light_grey" },
 }
 
 return M

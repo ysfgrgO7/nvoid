@@ -1,9 +1,9 @@
 local S = {}
 
-local M = reload("ysf.ui.statusline.modules")
+local M = reload "ysf.ui.statusline.modules"
 
 S.run = function()
-  return table.concat({
+  return table.concat {
     M.git(),
     M.lsp_diagnostics(),
 
@@ -12,6 +12,6 @@ S.run = function()
 
     M.get_lsp(),
     M.scrollbar(),
-  })
+  }
 end
 return S

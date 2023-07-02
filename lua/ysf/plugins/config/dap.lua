@@ -13,12 +13,12 @@ if not dap_install_status_ok then
   return
 end
 
-dap_install.setup({})
+dap_install.setup {}
 
 dap_install.config("python", {})
 -- add other configs here
 
-dapui.setup({
+dapui.setup {
   sidebar = {
     elements = {
       {
@@ -33,7 +33,7 @@ dapui.setup({
   tray = {
     elements = {},
   },
-})
+}
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 

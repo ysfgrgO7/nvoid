@@ -1,10 +1,12 @@
 nvoid.builtin.which_key.setup.layout.align = "center"
 nvoid.builtin.which_key.mappings["s"] = {
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-  nvoid.icons.ui.Search .. " Search" }
+  nvoid.icons.ui.Search .. " Search",
+}
 nvoid.builtin.which_key.mappings["b"] = {
   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
-  " Buffer" }
+  " Buffer",
+}
 nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
 nvoid.builtin.which_key.mappings["z"] = {
   name = " Zen",

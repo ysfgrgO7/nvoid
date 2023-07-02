@@ -67,16 +67,17 @@ M.lsp_diagnostics = function()
   local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
   local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 
-  errors = (errors and errors > 0) and ("%#St_lspError#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ") or
-      ("%#St_lspError#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ")
+  errors = (errors and errors > 0) and ("%#St_lspError#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ")
+    or ("%#St_lspError#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ")
 
-  warnings = (warnings and warnings > 0) and
-      ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ") or
-      ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ")
+  warnings = (warnings and warnings > 0)
+      and ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ")
+    or ("%#St_lspWarning#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ")
 
   hints = (hints and hints > 0) and ("%#St_lspHints#" .. nvoid.icons.diagnostics.BoldHint .. " " .. hints .. " ") or " "
 
-  info = (info and info > 0) and ("%#St_lspInfo#" .. nvoid.icons.diagnostics.BoldInformation .. " " .. info .. " ") or ""
+  info = (info and info > 0) and ("%#St_lspInfo#" .. nvoid.icons.diagnostics.BoldInformation .. " " .. info .. " ")
+    or ""
 
   return errors .. warnings .. hints .. info
 end

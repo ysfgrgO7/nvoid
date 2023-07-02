@@ -1,5 +1,5 @@
 local icons = require("ysf.icons").lsp
-require("trouble").setup({
+require("trouble").setup {
   position = "bottom",
   height = 10,
   width = 50,
@@ -41,4 +41,4 @@ require("trouble").setup({
     information = icons.info,
   },
   use_diagnostic_signs = false,
-})
+}
