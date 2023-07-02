@@ -13,3 +13,7 @@ for _, cmds in pairs(reload "ysf.cmds") do
   local opts = vim.tbl_deep_extend("force", common_opts, cmds.opts or {})
   vim.api.nvim_create_user_command(cmds.name, cmds.fn, opts)
 end
+vim.cmd [[
+  aunmenu PopUp.How-to\ disable\ mouse
+  aunmenu PopUp.-1-
+]]
