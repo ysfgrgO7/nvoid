@@ -44,6 +44,17 @@ M.list = {
     branch = "dev",
   },
   {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+    config = function()
+      require "ysf.plugins.config.mason-null-ls" -- require your null-ls config here (example below)
+    end,
+  },
+  {
     "kylechui/nvim-surround",
     config = function()
       reload "ysf.plugins.config.surround"
