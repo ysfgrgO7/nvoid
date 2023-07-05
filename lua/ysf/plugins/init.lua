@@ -51,7 +51,7 @@ M.list = {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      require "ysf.plugins.config.mason-null-ls" -- require your null-ls config here (example below)
+      reload "ysf.plugins.config.mason-null-ls"
     end,
   },
   {
@@ -109,7 +109,7 @@ M.list = {
     "monkoose/matchparen.nvim",
     config = function()
       vim.g.loaded_matchparen = 1
-      require("matchparen").setup {
+      reload("matchparen").setup {
         on_startup = true,
         hl_group = "MatchParen",
         augroup_name = "matchparen",
