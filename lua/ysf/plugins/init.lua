@@ -122,6 +122,13 @@ M.list = {
     config = true,
     cmd = "Glow",
   },
+  {
+    "j-hui/fidget.nvim",
+    branch = "legacy",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
 }
 
 return M
