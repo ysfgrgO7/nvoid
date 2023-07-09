@@ -3,9 +3,8 @@ return {
   CokeUn = { bg = "darker_black", fg = "grey" },
   CokeUnsaved = { fg = "green" },
   CokeClose = { fg = "red", bg = "red" },
-  CokeFill = { bg = "darker_black" }, -- tab pages line, where there are no labels
+  CokeFill = { bg = "darker_black" },
   CokeSep = { bg = "blue", fg = "blue" },
-  -- Tree-sitter
   rainbowcol1 = { fg = "red" },
   rainbowcol2 = { fg = "yellow" },
   rainbowcol3 = { fg = "green" },
@@ -20,13 +19,9 @@ return {
   TSRainbowBlue = { fg = "blue" },
   TSRainbowViolet = { fg = "purple" },
   TSRainbowCyan = { fg = "cyan" },
-  -- Trouble
   TroubleText = { fg = "white" },
   TroubleCount = { fg = "purple", bg = "grey" },
   TroubleNormal = { fg = "white", bg = "black" },
-  -- Dap
-  DapStoppedLine = { bg = "orange" }, -- Used for "Warning" diagnostic virtual text
-  -- Lsp
   LspCodeLens = { fg = "grey" },
   LspInfoBorder = { fg = "blue", bg = "black" },
   ["@lsp.type.comment"] = { link = "@comment" },
@@ -37,7 +32,7 @@ return {
   ["@lsp.type.namespace"] = { link = "@namespace" },
   ["@lsp.type.parameter"] = { link = "@parameter" },
   ["@lsp.type.property"] = { link = "@property" },
-  ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+  ["@lsp.type.variable"] = {},
   ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
   ["@lsp.typemod.macro.defaultLibrary"] = { link = "@function.builtin" },
   ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
@@ -46,8 +41,6 @@ return {
   ["@lsp.typemod.type.defaultLibrary"] = { fg = "blue" },
   ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
   ["@lsp.typemod.variable.injected"] = { link = "@variable" },
-  NvimTreeIndentMarker = { fg = "grey", bg = "NONE" },
-  -- Modicator
   CursorLineNr = { bold = true, fg = "blue" },
   NormalMode = { fg = "blue", bg = "none" },
   InsertMode = { fg = "green", bg = "none" },
@@ -58,4 +51,11 @@ return {
   TerminalMode = { fg = "cyan", bg = "none" },
   TerminalNormalMode = { fg = "teal", bg = "none" },
   MatchParen = { bg = "light_grey" },
+  CmpItemKindEnum = { bg = "blue", fg = "black" },
+  CmpItemKindClass = { bg = "teal", fg = "black" },
+  CmpItemKindInterface = { bg = "green", fg = "black" },
+  CmpItemKindEnumMember = { bg = "purple", fg = "black" },
+  CmpItemKindCopilot = { bg = "green", fg = "black" },
+  CmpItemKindValue = { bg = "cyan", fg = "black" },
+  CmpItemKindEvent = { bg = "yellow", fg = "black" },
 }
