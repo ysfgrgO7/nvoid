@@ -1,12 +1,6 @@
 local M = {}
 
 M.list = {
-  -- {
-  --   "willothy/nvim-cokeline",
-  --   config = function()
-  --     reload "ysf.plugins.config.cokeline"
-  --   end,
-  -- },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -103,18 +97,6 @@ M.list = {
     dependencies = "nvoid-lua/base16",
     config = function()
       reload "ysf.plugins.config.modicator"
-    end,
-  },
-  {
-    "monkoose/matchparen.nvim",
-    config = function()
-      vim.g.loaded_matchparen = 1
-      reload("matchparen").setup {
-        on_startup = true,
-        hl_group = "MatchParen",
-        augroup_name = "matchparen",
-        debounce_time = 100,
-      }
     end,
   },
   {
