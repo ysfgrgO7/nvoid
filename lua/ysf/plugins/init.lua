@@ -1,12 +1,12 @@
 local M = {}
 
 M.list = {
-  {
-    "willothy/nvim-cokeline",
-    config = function()
-      reload "ysf.plugins.config.cokeline"
-    end,
-  },
+  -- {
+  --   "willothy/nvim-cokeline",
+  --   config = function()
+  --     reload "ysf.plugins.config.cokeline"
+  --   end,
+  -- },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
