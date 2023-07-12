@@ -1,4 +1,5 @@
 local M = {}
+local config = require("ysf.ui.bufferline.config")
 
 function M.define_autocmds(definitions)
   for _, entry in ipairs(definitions) do
@@ -15,16 +16,21 @@ function M.define_autocmds(definitions)
 end
 
 function M.show()
-  vim.api.nvim_create_autocmd(
-    { "BufAdd", "BufDelete", "BufEnter", "BufUnload", "BufLeave", "BufNew", "BufNewFile", "TermOpen", "tabnew" },
-    {
-      pattern = "*",
-      group = vim.api.nvim_create_augroup("TabuflineLazyLoad", {}),
-      callback = function()
-        require("ysf.ui.bufferline.functions").showbufferline()
-      end,
-    }
-  )
+  if config.always_show then
+    vim.opt.showtabline = 2
+    vim.opt.tabline = "%!v:lua.require('ysf.ui.bufferline').run()"
+  else
+    vim.api.nvim_create_autocmd(
+      { "BufAdd", "BufDelete", "BufEnter", "BufUnload", "BufLeave", "BufNew", "BufNewFile", "TermOpen", "tabnew" },
+      {
+        pattern = "*",
+        group = vim.api.nvim_create_augroup("TabuflineLazyLoad", {}),
+        callback = function()
+          require("ysf.ui.bufferline.functions").showbufferline()
+        end,
+      }
+    )
+  end
 end
 
 function M.get_cmds()
