@@ -11,13 +11,14 @@ vim.cmd "function! TbGoToBuf(bufnr,b,c,d) \n execute 'b'..a:bufnr \n endfunction
 
 vim.cmd [[
    function! TbKillBuf(bufnr,b,c,d)
-        call luaeval('require("ysf.ui.bufferline").close_buffer(_A)', a:bufnr)
+        call luaeval('require("ysf.ui.bufferline.functions").closebuffer(_A)', a:bufnr)
   endfunction]]
 
 vim.cmd "function! TbNewTab(a,b,c,d) \n tabnew \n endfunction"
 vim.cmd "function! TbGotoTab(tabnr,b,c,d) \n execute a:tabnr ..'tabnext' \n endfunction"
-vim.cmd "function! TbTabClose(a,b,c,d) \n lua require('ysf.ui.bufferline').closeAllBufs('closeTab') \n endfunction"
-vim.cmd "function! TbCloseAllBufs(a,b,c,d) \n lua require('ysf.ui.bufferline').closeAllBufs() \n endfunction"
+vim.cmd "function! TbTabClose(a,b,c,d) \n lua require('ysf.ui.bufferline.functions').closeAllBufs('closeTab') \n endfunction"
+vim.cmd "function! TbCloseAllBufs(a,b,c,d) \n lua require('ysf.ui.bufferline.functions').closeAllBufs() \n endfunction"
+vim.cmd "function! TbToggleTabs(a,b,c,d) \n let g:TbTabsToggled = !g:TbTabsToggled | redrawtabline \n endfunction"
 
 -------------------------------------------------------- functions ------------------------------------------------------------
 local function new_hl(group1, group2)
@@ -40,6 +41,7 @@ local function getBtnsWidth() -- close
   local width = 6
   if fn.tabpagenr "$" ~= 1 then
     width = width + ((3 * fn.tabpagenr "$") + 2) + 10
+    width = not vim.g.TbTabsToggled and 8 or width
   end
   return width
 end
@@ -108,13 +110,10 @@ local function styleBufferTab(nr)
   local name = (#api.nvim_buf_get_name(nr) ~= 0) and fn.fnamemodify(api.nvim_buf_get_name(nr), ":t") or " No Name "
   name = "%" .. nr .. "@TbGoToBuf@" .. add_fileInfo(name, nr) .. "%X"
 
-  -- add numbers to each tab in tabufline
-  -- if tabufline_config.show_numbers then
-  --   for index, value in ipairs(vim.t.bufs) do
-  --     if nr == value then
-  --       name = name .. index
-  --       break
-  --     end
+  -- for index, value in ipairs(vim.t.bufs) do
+  --   if nr == value then
+  --     name = " " .. index .. name
+  --     break
   --   end
   -- end
 
@@ -164,6 +163,8 @@ M.bufferlist = function()
   return table.concat(buffers) .. "%#TblineFill#" .. "%=" -- buffers + empty space
 end
 
+vim.g.TbTabsToggled = 0
+
 M.tablist = function()
   local result, number_of_tabs = "", fn.tabpagenr "$"
 
@@ -173,18 +174,18 @@ M.tablist = function()
       result = result .. ("%" .. i .. "@TbGotoTab@" .. tab_hl .. i .. " ")
       result = (i == fn.tabpagenr() and result .. "%#TbLineTabCloseBtn#" .. "%@TbTabClose@󰅙 %X") or result
     end
+
+    local new_tabtn = "%#TblineTabNewBtn#" .. "%@TbNewTab@  %X"
+    local tabstoggleBtn = "%@TbToggleTabs@ %#TBTabTitle# " .. nvoid.icons.ui.Tab .. " %X"
+
+    return vim.g.TbTabsToggled == 1 and tabstoggleBtn:gsub("()", { [36] = " " })
+      or new_tabtn .. tabstoggleBtn .. result
   end
 end
 
 M.buttons = function()
   local CloseAllBufsBtn = "%@TbCloseAllBufs@%#TbLineCloseAllBufsBtn#" .. " 󰅖 " .. "%X"
   return CloseAllBufsBtn
-end
-
-M.run = function()
-  local modules = require "ysf.ui.bufferline.modules"
-  local result = modules.bufferlist() .. (modules.tablist() or "") .. modules.buttons()
-  return (vim.g.nvimtree_side == "left") and modules.CoverNvimTree() .. result or modules.CoverNvimTree() .. result
 end
 
 return M
