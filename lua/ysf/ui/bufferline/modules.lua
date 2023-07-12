@@ -1,7 +1,7 @@
 local api = vim.api
 local fn = vim.fn
-local config = require "ysf.ui.bufferline.config"
 local utils = require "ysf.ui.bufferline.utils"
+local icons = require("ysf.ui.bufferline").icons
 utils.btns()
 
 local M = {}
@@ -44,21 +44,20 @@ M.tablist = function()
     for i = 1, number_of_tabs, 1 do
       local tab_hl = ((i == fn.tabpagenr()) and "%#TbLineTabOn# ") or "%#TbLineTabOff# "
       result = result .. ("%" .. i .. "@TbGotoTab@" .. tab_hl .. i .. " ")
-      result = (
-        i == fn.tabpagenr() and result .. "%#TbLineTabCloseBtn#" .. "%@TbTabClose@" .. config.icons.tab_close .. " %X"
-      ) or result
+      result = (i == fn.tabpagenr() and result .. "%#TbLineTabCloseBtn#" .. "%@TbTabClose@" .. icons.tab_close .. " %X")
+        or result
     end
 
-    local new_tabtn = "%#TblineTabNewBtn#" .. "%@TbNewTab@ " .. config.icons.tab_add .. "%X"
-    local tabstoggleBtn = "%@TbToggleTabs@ %#TBTabTitle# " .. config.icons.tab .. " %X"
+    local new_tabtn = "%#TblineTabNewBtn#" .. "%@TbNewTab@ " .. icons.tab_add .. "%X"
+    local tabstoggleBtn = "%@TbToggleTabs@ %#TBTabTitle# " .. icons.tab .. " %X"
 
-    return vim.g.TbTabsToggled == 1 and tabstoggleBtn:gsub("()", { [36] = config.icons.tab_toggle .. " " })
+    return vim.g.TbTabsToggled == 1 and tabstoggleBtn:gsub("()", { [36] = icons.tab_toggle .. " " })
       or new_tabtn .. tabstoggleBtn .. result
   end
 end
 
 M.buttons = function()
-  local CloseAllBufsBtn = "%@TbCloseAllBufs@%#TbLineCloseAllBufsBtn# " .. config.icons.close .. " %X"
+  local CloseAllBufsBtn = "%@TbCloseAllBufs@%#TbLineCloseAllBufsBtn# " .. icons.close .. " %X"
   return CloseAllBufsBtn
 end
 

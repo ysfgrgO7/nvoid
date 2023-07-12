@@ -1,7 +1,7 @@
 local M = {}
 local api = vim.api
 local utils = require "ysf.ui.bufferline.utils"
-local config = require "ysf.ui.bufferline.config"
+local always_show = require("ysf.ui.bufferline").always_show
 
 function M.showbufferline()
   if #vim.fn.getbufinfo { buflisted = 1 } >= 2 or #api.nvim_list_tabpages() >= 2 then
@@ -70,7 +70,7 @@ function M.closebuffer(bufnr)
   end
 
   vim.cmd "redrawtabline"
-  if config.always_show then
+  if always_show then
     return
   else
     M.showbufferline()
@@ -102,7 +102,7 @@ function M.closeOtherBufs()
   end
 
   vim.cmd "redrawtabline"
-  if config.always_show then
+  if always_show then
     return
   else
     M.showbufferline()

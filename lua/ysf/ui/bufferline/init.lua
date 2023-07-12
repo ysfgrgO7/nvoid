@@ -1,5 +1,5 @@
 local M = {}
-local config = require("ysf.ui.bufferline.config")
+-- local config = require "ysf.ui.bufferline.config"
 
 function M.define_autocmds(definitions)
   for _, entry in ipairs(definitions) do
@@ -16,7 +16,7 @@ function M.define_autocmds(definitions)
 end
 
 function M.show()
-  if config.always_show then
+  if M.always_show then
     vim.opt.showtabline = 2
     vim.opt.tabline = "%!v:lua.require('ysf.ui.bufferline').run()"
   else
@@ -47,7 +47,24 @@ M.run = function()
   return (vim.g.nvimtree_side == "left") and modules.CoverNvimTree() .. result or modules.CoverNvimTree() .. result
 end
 
-function M.setup()
+function M.setup(opts)
+  if not opts then
+    opts = {}
+  end
+
+  M.always_show = opts.always_show or false
+  M.show_numbers = opts.show_numbers or false
+  M.kind_icons = opts.kind_icons or true
+  M.icons = {
+    unknown_file = "󰈚",
+    close = "󰅖",
+    modified = "",
+    tab = "󰌒",
+    tab_close = "󰅙",
+    tab_toggle = "",
+    tab_add = "",
+  }
+
   M.define_autocmds(require "ysf.ui.bufferline.autocmd")
   M.show()
   M.get_cmds()

@@ -1,7 +1,9 @@
 local M = {}
 local api = vim.api
 local fn = vim.fn
-local config = require "ysf.ui.bufferline.config"
+local icons = require("ysf.ui.bufferline").icons
+local show_numbers = require("ysf.ui.bufferline").show_numbers
+local kind_icons = require("ysf.ui.bufferline").kind_icons
 local devicons_present, devicons = pcall(require, "nvim-web-devicons")
 
 function M.isBufValid(bufnr)
@@ -49,7 +51,7 @@ function M.add_fileInfo(name, bufnr)
   if devicons_present then
     local icon, icon_hl = devicons.get_icon(name, string.match(name, "%a+$"))
     if not icon then
-      icon = config.icons.unknown_file
+      icon = icons.unknown_file
       icon_hl = "DevIconDefault"
     end
     icon = (
@@ -88,7 +90,7 @@ function M.add_fileInfo(name, bufnr)
     local maxname_len = 16
     name = (#name > maxname_len and string.sub(name, 1, 14) .. "..") or name
     name = (api.nvim_get_current_buf() == bufnr and "%#TbLineBufOn# " .. name) or ("%#TbLineBufOff# " .. name)
-    if config.kind_icons then
+    if kind_icons then
       return string.rep(" ", padding) .. icon .. name .. string.rep(" ", padding)
     else
       return string.rep(" ", padding) .. name .. string.rep(" ", padding)
@@ -106,10 +108,10 @@ function M.getBtnsWidth()
 end
 
 function M.styleBufferTab(nr)
-  local close_btn = "%" .. nr .. "@TbKillBuf@ " .. config.icons.close .. " %X"
+  local close_btn = "%" .. nr .. "@TbKillBuf@ " .. icons.close .. " %X"
   local name = (#api.nvim_buf_get_name(nr) ~= 0) and fn.fnamemodify(api.nvim_buf_get_name(nr), ":t") or " No Name "
   name = "%" .. nr .. "@TbGoToBuf@" .. M.add_fileInfo(name, nr) .. "%X"
-  if config.show_numbers then
+  if show_numbers then
     for index, value in ipairs(vim.t.bufs) do
       if nr == value then
         name = " " .. index .. name
@@ -118,9 +120,8 @@ function M.styleBufferTab(nr)
     end
   end
   if nr == api.nvim_get_current_buf() then
-    close_btn = (
-      vim.bo[0].modified and "%" .. nr .. "@TbKillBuf@%#TbLineBufOnModified# " .. config.icons.modified .. " "
-    ) or ("%#TbLineBufOnClose#" .. close_btn)
+    close_btn = (vim.bo[0].modified and "%" .. nr .. "@TbKillBuf@%#TbLineBufOnModified# " .. icons.modified .. " ")
+      or ("%#TbLineBufOnClose#" .. close_btn)
     name = "%#TbLineBufOn#" .. name .. close_btn
   else
     close_btn = (vim.bo[nr].modified and "%" .. nr .. "@TbKillBuf@%#TbBufLineBufOffModified#  ")
