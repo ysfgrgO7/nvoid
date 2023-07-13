@@ -51,18 +51,4 @@ return {
   CmpItemKindCopilot = { bg = "green", fg = "black" },
   CmpItemKindValue = { bg = "cyan", fg = "black" },
   CmpItemKindEvent = { bg = "yellow", fg = "black" },
-
-  TblineFill = { bg = "black2" },
-  TbLineBufOn = { fg = "white", bg = "black" },
-  TbLineBufOff = { fg = "light_grey", bg = "black2" },
-  TbLineBufOnModified = { fg = "green", bg = "black" },
-  TbBufLineBufOffModified = { fg = "red", bg = "black2" },
-  TbLineBufOnClose = { fg = "black", bg = "red" },
-  TbLineBufOffClose = { fg = "light_grey", bg = "black2" },
-  TblineTabNewBtn = { fg = "white", bg = "one_bg3", bold = true },
-  TbLineTabOn = { fg = "black", bg = "nord_blue", bold = true },
-  TbLineTabOff = { fg = "white", bg = "one_bg2" },
-  TbLineTabCloseBtn = { fg = "black", bg = "nord_blue" },
-  TBTabTitle = { fg = "black", bg = "white" },
-  TbLineCloseAllBufsBtn = { bold = true, bg = "black", fg = "red" },
 }

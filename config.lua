@@ -8,6 +8,7 @@ reload "ysf.builtins.cmp"
 reload "ysf.builtins.wk"
 reload "ysf.builtins.nt"
 reload "ysf.builtins.ts"
+reload "ysf.builtins.bl"
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.cmd [[

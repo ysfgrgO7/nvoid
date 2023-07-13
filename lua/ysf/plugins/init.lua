@@ -2,12 +2,6 @@ local M = {}
 
 M.list = {
   {
-    "nvoid-lua/bufferline.lua",
-    config = function()
-      reload "ysf.plugins.config.bufferline"
-    end,
-  },
-  {
     "NvChad/nvim-colorizer.lua",
     config = function()
       reload "ysf.plugins.config.colorizer"
