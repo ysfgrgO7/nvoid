@@ -1,4 +1,4 @@
-return {
+require("bufferline").setup {
   always_show = false,
   show_numbers = false,
   kind_icons = true,
