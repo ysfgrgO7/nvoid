@@ -21,4 +21,11 @@ return {
   CmpItemKindStruct = { bg = "purple", fg = "black" },
   CmpItemKindOperator = { bg = "light_grey", fg = "black" },
   CmpItemKindTypeParameter = { bg = "vibrant_green", fg = "black" },
+  CmpItemKindEnum = { bg = "blue", fg = "black" },
+  CmpItemKindClass = { bg = "teal", fg = "black" },
+  CmpItemKindInterface = { bg = "green", fg = "black" },
+  CmpItemKindEnumMember = { bg = "purple", fg = "black" },
+  CmpItemKindCopilot = { bg = "green", fg = "black" },
+  CmpItemKindValue = { bg = "cyan", fg = "black" },
+  CmpItemKindEvent = { bg = "yellow", fg = "black" },
 }
