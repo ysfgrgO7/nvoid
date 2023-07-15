@@ -28,4 +28,5 @@ return {
   CmpItemKindCopilot = { bg = "green", fg = "black" },
   CmpItemKindValue = { bg = "cyan", fg = "black" },
   CmpItemKindEvent = { bg = "yellow", fg = "black" },
+  St_pos_text = { fg = "blue", bg = "statusline_bg" },
 }
