@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 surround.setup {
-  keymaps = { -- vim-surround style keymaps
+  keymaps = {
     insert = "<C-g>s",
     insert_line = "<C-g>S",
     normal = "s",

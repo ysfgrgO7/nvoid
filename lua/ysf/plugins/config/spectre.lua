@@ -1,7 +1,7 @@
 require("spectre").setup {
   color_devicons = true,
   open_cmd = "vnew",
-  live_update = false, -- auto execute search again when you write to any file in vim
+  live_update = false,
   line_sep_start = "┌-----------------------------------------",
   result_padding = "¦  ",
   line_sep = "└-----------------------------------------",
@@ -81,13 +81,10 @@ require("spectre").setup {
       cmd = "<cmd>lua require('spectre').resume_last_search()<CR>",
       desc = "resume last search before close",
     },
-    -- you can put your mapping here it only use normal mode
   },
   find_engine = {
-    -- rg is map with finder_cmd
     ["rg"] = {
       cmd = "rg",
-      -- default args
       args = {
         "--color=never",
         "--no-heading",
@@ -106,8 +103,6 @@ require("spectre").setup {
           desc = "hidden file",
           icon = "[H]",
         },
-        -- you can put any rg search option you want here it can toggle with
-        -- show_option function
       },
     },
     ["ag"] = {
@@ -142,7 +137,6 @@ require("spectre").setup {
         },
       },
     },
-    -- call rust code by nvim-oxi to replace
     ["oxi"] = {
       cmd = "oxi",
       args = {},
@@ -157,16 +151,14 @@ require("spectre").setup {
   },
   default = {
     find = {
-      --pick one of item in find_engine
       cmd = "rg",
       options = { "ignore-case" },
     },
     replace = {
-      --pick one of item in replace_engine
       cmd = "sed",
     },
   },
   replace_vim_cmd = "cdo",
-  is_open_target_win = true, --open file on opener window
-  is_insert_mode = false, -- start open panel on is_insert_mode
+  is_open_target_win = true,
+  is_insert_mode = false,
 }
