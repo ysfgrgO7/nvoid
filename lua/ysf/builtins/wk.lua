@@ -1,20 +1,35 @@
 nvoid.builtin.which_key.setup.layout.align = "center"
 nvoid.builtin.which_key.mappings[";"] = nil
 
+--## Telescope
 nvoid.builtin.which_key.mappings["s"] = {
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
   nvoid.icons.ui.Search .. " Search",
 }
 
--- nvoid.builtin.which_key.mappings["e"] = {
---   "<cmd>Telescope file_browserCR>",
---   nvoid.icons.ui.Search .. " Files",
--- }
-
 nvoid.builtin.which_key.mappings["b"] = {
   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
   " Buffer",
 }
+
+nvoid.builtin.which_key.mappings["f"] = {
+  name = " Find",
+  b = {
+    "<cmd>lua require 'telescope'.extensions.file_browser.file_browser(require('telescope.themes').get_ivy{previewer = true})<cr>",
+    "File Browser",
+  },
+  c = { "<cmd>Telescope themes<cr>", "Change Colors" },
+  f = { "<cmd>Telescope find_files<cr>", "Find files" },
+  h = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
+  H = { "<cmd>Telescope help_tags<cr>", "CMD Help" },
+  p = { "<cmd>Telescope projects<cr>", "Projects" },
+  k = { "<cmd>Telescope keymaps<cr>", "Key maps" },
+  m = { "<cmd>Telescope media_files<cr>", "Media Files" },
+  o = { "<cmd>Telescope vim_options<cr>", "Options" },
+  t = { "<cmd>Telescope filetypes<cr>", "File Types" },
+  w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Word In Document" },
+}
+
 nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
 nvoid.builtin.which_key.mappings["z"] = {
   name = " Zen",
