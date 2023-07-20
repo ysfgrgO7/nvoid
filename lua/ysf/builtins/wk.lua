@@ -5,6 +5,12 @@ nvoid.builtin.which_key.mappings["s"] = {
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
   nvoid.icons.ui.Search .. " Search",
 }
+
+-- nvoid.builtin.which_key.mappings["e"] = {
+--   "<cmd>Telescope file_browserCR>",
+--   nvoid.icons.ui.Search .. " Files",
+-- }
+
 nvoid.builtin.which_key.mappings["b"] = {
   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>",
   " Buffer",
