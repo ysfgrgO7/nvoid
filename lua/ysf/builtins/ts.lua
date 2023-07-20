@@ -4,6 +4,7 @@ nvoid.builtin.treesitter.ensure_installed = {
   "javascript",
   "json",
   "lua",
+  "vim",
   "python",
   "typescript",
   "tsx",

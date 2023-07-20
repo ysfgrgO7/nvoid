@@ -34,6 +34,9 @@ M.list = {
     end,
   },
   {
+    "rcarriga/nvim-dap-ui",
+  },
+  {
     "Pocco81/dap-buddy.nvim",
     branch = "dev",
   },
@@ -46,6 +49,13 @@ M.list = {
     },
     config = function()
       reload "ysf.plugins.config.mason-null-ls"
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    cmd = { "DapInstall", "DapUninstall" },
+    config = function()
+      reload "ysf.plugins.config.mason-dap"
     end,
   },
   {

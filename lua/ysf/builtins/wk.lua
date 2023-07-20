@@ -1,4 +1,6 @@
 nvoid.builtin.which_key.setup.layout.align = "center"
+nvoid.builtin.which_key.mappings[";"] = nil
+
 nvoid.builtin.which_key.mappings["s"] = {
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
   nvoid.icons.ui.Search .. " Search",
@@ -13,12 +15,7 @@ nvoid.builtin.which_key.mappings["z"] = {
   z = { "<cmd>ZenMode<cr>", "ZenMode" },
   t = { "<cmd>Twilight<cr>", "Twilight" },
 }
-nvoid.builtin.which_key.mappings["c"] = {
-  name = " Config",
-  p = { "<cmd>e ~/.config/nvim/lua/nvoid/plugins/init.lua<cr>", "Packer" },
-  c = { "<cmd>e ~/.config/nvim/lua/nvoid/core/init.lua<cr>", "Core" },
-  t = { "<cmd>e ~/.config/nvim/lua/nvoid/ui/init.lua<cr>", "UI" },
-}
+
 nvoid.builtin.which_key.mappings["l"] = {
   name = "力lsp",
   d = { "<cmd>NvoidDiagnostics<cr>", "Diagnostics" },
@@ -30,4 +27,13 @@ nvoid.builtin.which_key.mappings["l"] = {
   t = { "<cmd>TroubleToggle<cr>", "Trouble Toggle" },
   T = { "<cmd>Telescope diagnostics<CR>", "Telescope Diagnocstics" },
 }
-nvoid.builtin.which_key.mappings[";"] = nil
+
+-- Spectre
+nvoid.builtin.which_key.mappings["S"] = {
+  name = nvoid.icons.ui.Search .. " Spectre",
+  o = { "<cmd>lua require('spectre').open()<CR>", "Open" },
+  w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word" },
+  p = { "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Search on current file" },
+}
+nvoid.builtin.which_key.vmappings["Sw"] =
+  { "<esc><cmd>lua require('spectre').open_visual()<CR>", "Search current word" }
