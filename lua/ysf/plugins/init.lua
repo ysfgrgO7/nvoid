@@ -124,8 +124,7 @@ M.list = {
   {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("project_nvim").setup {}
-      require("telescope").load_extension "projects"
+      reload "ysf.plugins.config.projects"
     end,
   },
 }
