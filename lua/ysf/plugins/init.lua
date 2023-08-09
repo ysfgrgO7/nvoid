@@ -1,6 +1,11 @@
-local M = {}
-
-M.list = {
+return {
+  {
+    "tamago324/lir.nvim",
+    config = function()
+      reload "ysf.plugins.config.lir"
+    end,
+    event = "User DirOpened",
+  },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -132,5 +137,3 @@ M.list = {
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   },
 }
-
-return M

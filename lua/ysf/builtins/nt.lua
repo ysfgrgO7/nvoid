@@ -9,3 +9,4 @@ nt.sync_root_with_cwd = true
 nt.respect_buf_cwd = true
 nt.update_focused_file.enable = true
 nt.update_focused_file.update_root = true
+nt.hijack_netrw = true
