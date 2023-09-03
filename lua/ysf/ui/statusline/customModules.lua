@@ -1,7 +1,7 @@
 local M = {}
 local fn = vim.fn
 
-local modesE = {
+local modesC = {
   ["n"] = { "", "St_NormalModeE" },
   ["no"] = { "", "St_NormalModeE" },
   ["i"] = { "", "St_InsertModeE" },
@@ -25,9 +25,9 @@ local modesE = {
   ["!"] = { "", "St_TerminalModeE" },
 }
 
-M.modeE = function()
+M.modeC = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modesE[m][2] .. "#" .. "" .. modesE[m][1] .. ""
+  local current_mode = "%#" .. modesC[m][2] .. "#" .. "" .. modesC[m][1] .. ""
   return current_mode
 end
 
