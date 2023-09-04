@@ -1,7 +1,6 @@
 local M = {}
-local fn = vim.fn
 
-local modesC = {
+M.modesC = {
   ["n"] = { "", "St_NormalModeE" },
   ["no"] = { "", "St_NormalModeE" },
   ["i"] = { "", "St_InsertModeE" },
@@ -27,12 +26,12 @@ local modesC = {
 
 M.modeC = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modesC[m][2] .. "#" .. "" .. modesC[m][1] .. ""
+  local current_mode = "%#" .. M.modesC[m][2] .. "#" .. "" .. M.modesC[m][1] .. ""
   return current_mode
 end
 
 M.treesitter = function()
-  local icon = nvoid.icons.statusline.treesitter
+  local icon = nvoid.icons.ui.Tree
   local buf = vim.api.nvim_get_current_buf()
   local ts = vim.treesitter.highlighter.active[buf]
   if ts and not vim.tbl_isempty(ts) then

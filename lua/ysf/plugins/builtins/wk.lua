@@ -13,7 +13,7 @@ nvoid.builtin.which_key.mappings["b"] = {
 }
 
 nvoid.builtin.which_key.mappings["f"] = {
-  name = " Find",
+  name = " " .. nvoid.icons.ui.Telescope .. " Find",
   b = {
     "<cmd>lua require 'telescope'.extensions.file_browser.file_browser(require('telescope.themes').get_ivy{previewer = true})<cr>",
     "File Browser",
@@ -30,15 +30,15 @@ nvoid.builtin.which_key.mappings["f"] = {
   w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Word In Document" },
 }
 
-nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", " No Highlight" }
+nvoid.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<CR>", nvoid.icons.ui.Lightbulb .. " No Highlight" }
 nvoid.builtin.which_key.mappings["z"] = {
-  name = " Zen",
+  name = " 🧘 Zen",
   z = { "<cmd>ZenMode<cr>", "ZenMode" },
   t = { "<cmd>Twilight<cr>", "Twilight" },
 }
 
 nvoid.builtin.which_key.mappings["l"] = {
-  name = "力lsp",
+  name = " " .. nvoid.icons.ui.Lsp .. " lsp",
   d = { "<cmd>NvoidDiagnostics<cr>", "Diagnostics" },
   i = { "<cmd>LspInfo<cr>", "Info" },
   l = { "<cmd>MasonLog<cr>", "Mason Log" },
@@ -51,7 +51,7 @@ nvoid.builtin.which_key.mappings["l"] = {
 
 -- Spectre
 nvoid.builtin.which_key.mappings["S"] = {
-  name = nvoid.icons.ui.Search .. " Spectre",
+  name = " " .. nvoid.icons.ui.Search .. " Spectre",
   o = { "<cmd>lua require('spectre').open()<CR>", "Open" },
   w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word" },
   p = { "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Search on current file" },
