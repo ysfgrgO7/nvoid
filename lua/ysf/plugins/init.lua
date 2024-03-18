@@ -108,13 +108,6 @@ return {
     end,
   },
   {
-    "mawkler/modicator.nvim",
-    dependencies = "nvoid-lua/base16",
-    config = function()
-      reload "ysf.plugins.config.modicator"
-    end,
-  },
-  {
     "ellisonleao/glow.nvim",
     config = true,
     cmd = "Glow",
