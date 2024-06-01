@@ -33,19 +33,6 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-dap",
-    config = function()
-      reload "ysf.plugins.config.dap"
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-  },
-  {
-    "Pocco81/dap-buddy.nvim",
-    branch = "dev",
-  },
-  {
     "jay-babu/mason-null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
