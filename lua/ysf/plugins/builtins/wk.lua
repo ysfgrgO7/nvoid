@@ -45,7 +45,7 @@ nvoid.builtin.which_key.mappings["l"] = {
   m = { "<cmd>Mason<cr>", "Mason" },
   r = { "<cmd>lua require('ysf.lsp.renamer').open()<cr>", "Rename" },
   f = { "<cmd>lua require('nvoid.lsp.utils').format()<cr>", "Format" },
-  t = { "<cmd>TroubleToggle<cr>", "Trouble Toggle" },
+  t = { "<cmd>Trouble diagnostics toggle<cr>", "Trouble Toggle" },
   T = { "<cmd>Telescope diagnostics<CR>", "Telescope Diagnocstics" },
 }
 

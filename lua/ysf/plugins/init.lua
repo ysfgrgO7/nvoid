@@ -28,6 +28,7 @@ return {
   },
   {
     "folke/trouble.nvim",
+    cmd = "Trouble",
     config = function()
       reload "ysf.plugins.config.trouble"
     end,
