@@ -1,4 +1,4 @@
-nvoid.ui.colorscheme = "tokyonight"
+nvoid.ui.colorscheme = "ashes"
 nvoid.log.level = "warn"
 nvoid.plugins = reload "ysf.plugins"
 reload "ysf.ui"
