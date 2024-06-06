@@ -1,23 +1,23 @@
 local M = {}
 
-local m = reload "nvoid.ui.statusline.modules"
+local dm = reload "nvoid.ui.statusline.modules"
 local cm = reload "ysf.ui.statusline.customModules"
-local module = vim.tbl_extend("keep", m, cm)
+local m = vim.tbl_extend("keep", dm, cm)
 
 M.run = function()
   return table.concat {
     " ",
-    module.modeC(),
+    m.modeC(),
     " ",
-    module.git(),
-    module.lsp_diagnostics(),
+    m.git(),
+    m.lsp_diagnostics(),
 
     "%=",
     "%=",
 
-    module.treesitter(),
-    module.get_lsp(),
-    module.scrollbar(),
+    m.treesitter(),
+    m.get_lsp(),
+    m.scrollbar(),
   }
 end
 
