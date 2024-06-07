@@ -29,12 +29,12 @@ return {
   RenamerBorder = { bg = "darker_black", fg = "darker_black" },
   RenamerTitle = { bg = "red", fg = "darker_black" },
   NvDashAscii = {
-    fg = "black",
-    bg = "blue",
+    fg = "blue",
+    bg = "black",
   },
 
   NvDashButtons = {
     fg = "white",
-    bg = "black2",
+    bg = "black",
   },
 }
