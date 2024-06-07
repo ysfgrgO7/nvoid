@@ -27,13 +27,15 @@ vim.schedule(function()
 
   if bufname == "" and no_buf_content then
     require("nvdash").open()
+    vim.keymap.set("n", "q", "<cmd>:q<cr>", { buffer = true })
+    vim.opt_local.buflisted = false
   end
 end, 0)
 
 -- Command to toggle NvDash
 new_cmd("Nvdash", function()
   if vim.g.nvdash_displayed then
-    require("bufferline.functions").closeAllBufs()
+    return
   else
     require("nvdash").open()
   end
