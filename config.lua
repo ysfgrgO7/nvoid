@@ -10,12 +10,6 @@ vim.o.timeoutlen = 300
 vim.api.nvim_command "set mousemodel=extend"
 local new_cmd = vim.api.nvim_create_user_command
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = "_dashboard_settings",
-  pattern = "nvdash",
-  command = "set laststatus=0 | autocmd BufUnload <buffer> set laststatus=" .. vim.opt.laststatus._value,
-})
-
 vim.api.nvim_create_autocmd("VimResized", {
   callback = function()
     if vim.bo.filetype == "nvdash" then
