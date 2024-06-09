@@ -28,13 +28,4 @@ return {
   ST_TS = { fg = "green", bg = "statusline_bg" },
   RenamerBorder = { bg = "darker_black", fg = "darker_black" },
   RenamerTitle = { bg = "red", fg = "darker_black" },
-  NvDashAscii = {
-    fg = "blue",
-    bg = "black",
-  },
-
-  NvDashButtons = {
-    fg = "white",
-    bg = "black",
-  },
 }
