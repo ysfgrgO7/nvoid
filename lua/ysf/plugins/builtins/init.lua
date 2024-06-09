@@ -3,7 +3,6 @@ reload "ysf.plugins.builtins.wk"
 reload "ysf.plugins.builtins.nt"
 reload "ysf.plugins.builtins.ts"
 reload "ysf.plugins.builtins.bl"
-nvoid.builtin.alpha.active = false
 nvoid.lazy.opts.performance.rtp.disabled_plugins = {
   "2html_plugin",
   "tohtml",
