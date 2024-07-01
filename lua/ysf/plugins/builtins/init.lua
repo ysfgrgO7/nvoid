@@ -1,4 +1,5 @@
 reload "ysf.plugins.builtins.cmp"
+reload "ysf.plugins.builtins.db"
 reload "ysf.plugins.builtins.wk"
 reload "ysf.plugins.builtins.nt"
 reload "ysf.plugins.builtins.ts"
