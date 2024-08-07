@@ -7,12 +7,12 @@ local m = vim.tbl_extend("keep", dm, cm)
 M.run = function()
   return table.concat {
     " ",
-    m.modeC(),
-    " ",
-    m.git(),
-    m.lsp_diagnostics(),
+    m.modeM(),
 
     "%=",
+    m.diff(),
+    " | ",
+    m.diagnostics(),
     "%=",
 
     m.treesitter(),

@@ -25,7 +25,6 @@ return {
   SelectMode = { fg = "orange", bg = "none" },
   TerminalMode = { fg = "cyan", bg = "none" },
   TerminalNormalMode = { fg = "teal", bg = "none" },
-  ST_TS = { fg = "green", bg = "statusline_bg" },
   RenamerBorder = { bg = "darker_black", fg = "darker_black" },
   RenamerTitle = { bg = "red", fg = "darker_black" },
 }

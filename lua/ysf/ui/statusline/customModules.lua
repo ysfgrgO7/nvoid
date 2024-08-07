@@ -1,33 +1,42 @@
 local M = {}
 
-M.modesC = {
-  ["n"] = { "", "St_NormalModeE" },
-  ["no"] = { "", "St_NormalModeE" },
-  ["i"] = { "", "St_InsertModeE" },
-  ["ic"] = { "", "St_InsertModeE" },
-  ["t"] = { "", "St_TerminalModeE" },
-  ["nt"] = { "", "St_NTerminalModeE" },
-  ["v"] = { "", "St_VisualModeE" },
-  ["V"] = { "", "St_VisualModeE" },
-  [""] = { "", "St_VisualModeE" },
-  ["R"] = { "", "St_ReplaceModeE" },
-  ["Rv"] = { "", "St_ReplaceModeE" },
-  ["s"] = { "", "St_SelectModeE" },
-  ["S"] = { "", "St_SelectModeE" },
-  [""] = { "", "St_SelectModeE" },
-  ["c"] = { "", "St_CommandModeE" },
-  ["cv"] = { "", "St_CommandModeE" },
-  ["ce"] = { "", "St_CommandModeE" },
-  ["r"] = { "", "St_ConfirmModeE" },
-  ["rm"] = { "", "St_ConfirmModeE" },
-  ["r?"] = { "", "St_ConfirmModeE" },
-  ["!"] = { "", "St_TerminalModeE" },
-}
+M.diff = function()
+  if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+    return ""
+  end
 
-M.modeC = function()
-  local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. M.modesC[m][2] .. "#" .. "" .. M.modesC[m][1] .. ""
-  return current_mode
+  local git_status = vim.b.gitsigns_status_dict
+  local added = (git_status.added and git_status.added ~= 0) and (nvoid.icons.git.LineAdded .. " " .. git_status.added)
+    or (nvoid.icons.git.LineAdded .. " 0")
+  local changed = (git_status.changed and git_status.changed ~= 0)
+      and (nvoid.icons.git.LineModified .. " " .. git_status.changed)
+    or (nvoid.icons.git.LineAdded .. " 0")
+  local removed = (git_status.removed and git_status.removed ~= 0)
+      and (nvoid.icons.git.LineRemoved .. " " .. git_status.removed)
+    or (nvoid.icons.git.LineAdded .. " 0")
+
+  return "%#St_ModeM#" .. "%#St_ModeM#" .. added .. " " .. "%#St_ModeM#" .. changed .. " " .. "%#St_ModeM#" .. removed
+end
+
+M.diagnostics = function()
+  if not rawget(vim, "lsp") then
+    return ""
+  end
+
+  local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+  local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+  local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+  local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+
+  errors = (errors and errors > 0) and ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldError .. " " .. errors .. " ")
+    or ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldError .. " 0 ")
+  warnings = (warnings and warnings > 0)
+      and ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldWarning .. " " .. warnings .. " ")
+    or ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldWarning .. " 0 ")
+  hints = (hints and hints > 0) and ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldHint .. " " .. hints .. " ") or ""
+  info = (info and info > 0) and ("%#St_ModeM#" .. nvoid.icons.diagnostics.BoldInformation .. " " .. info .. " ") or ""
+
+  return errors .. warnings .. hints .. info
 end
 
 M.treesitter = function()
@@ -35,7 +44,7 @@ M.treesitter = function()
   local buf = vim.api.nvim_get_current_buf()
   local ts = vim.treesitter.highlighter.active[buf]
   if ts and not vim.tbl_isempty(ts) then
-    return "%#ST_TS#" .. icon .. " "
+    return "%#St_ModeM#" .. icon .. " "
   else
     return ""
   end
