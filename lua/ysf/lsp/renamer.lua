@@ -7,7 +7,6 @@ M.open = function()
     title = "Renamer",
     style = "minimal",
     borderchars = { "─", "", "─", "", "", "", "", "" },
-    -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     relative = "cursor",
     borderhighlight = "RenamerBorder",
     titlehighlight = "RenamerTitle",
