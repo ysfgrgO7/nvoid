@@ -1,7 +1,7 @@
 local M = {}
 
 local dm = reload "nvoid.ui.statusline.modules"
-local cm = reload "ysf.ui.statusline.customModules"
+local cm = reload "ysf.ui.statusline.modules"
 local m = vim.tbl_extend("keep", dm, cm)
 
 M.run = function()
