@@ -1,13 +1,14 @@
 local M = {}
 
-local dm = reload "nvoid.ui.statusline.modules"
+local bm = reload "nvoid.ui.statusline.modules"
 local cm = reload "ysf.ui.statusline.modules"
-local m = vim.tbl_extend("keep", dm, cm)
+local m = vim.tbl_extend("keep", bm, cm)
 
 M.run = function()
   return table.concat {
     " ",
     m.modeM(),
+    m.treesitter(),
 
     "%=",
     m.diff(),
@@ -15,8 +16,9 @@ M.run = function()
     m.diagnostics(),
     "%=",
 
-    m.treesitter(),
+    "[ ",
     m.get_lsp(),
+    "] ",
     m.scrollbar(),
   }
 end
