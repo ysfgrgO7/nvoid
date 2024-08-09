@@ -16,7 +16,7 @@ M.run = function()
     m.diagnostics(),
     "%=",
 
-    "[ ",
+    "[",
     m.get_lsp(),
     "] ",
     m.scrollbar(),
