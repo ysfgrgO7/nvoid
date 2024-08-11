@@ -27,4 +27,8 @@ return {
   TerminalNormalMode = { fg = "teal", bg = "none" },
   RenamerBorder = { bg = "darker_black", fg = "darker_black" },
   RenamerTitle = { bg = "red", fg = "darker_black" },
+  LirFloatNormal = { fg = "grey", bg = "darker_black" },
+  LirDir = { fg = "blue", bg = "none" },
+  LirSymLink = { fg = "cyan", bg = "none" },
+  LirEmptyDirText = { link = "Comment" },
 }
